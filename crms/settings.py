@@ -79,6 +79,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',  # React's default port
     'https://cmsserver.up.railway.app',
     'https://courseresourcesmanagementsystem.netlify.app/',
+    'https://crms-web-delights-projects-4f8b0aa4.vercel.app/',
 ]
 
 ROOT_URLCONF = 'crms.urls'
