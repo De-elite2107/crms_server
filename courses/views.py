@@ -13,8 +13,14 @@ from django.utils.translation import gettext as _
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authentication import BaseAuthentication
 from rest_framework.exceptions import AuthenticationFailed
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 
 @api_view(['POST'])
+@swagger_auto_schema(
+        request_body=UserSerializer,
+        responses={200: openapi.Response('Success', UserSerializer)}
+    )
 def register(request):
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
