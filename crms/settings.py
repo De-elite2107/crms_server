@@ -78,6 +78,7 @@ MIDDLEWARE = [
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',  # React's default port
     'https://cmsserver.up.railway.app',
+    'https://courseresourcesmanagementsystem.netlify.app/',
 ]
 
 ROOT_URLCONF = 'crms.urls'
