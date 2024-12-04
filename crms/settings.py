@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['crmsserver.up.railway.app', 'localhost']
 
 
 # Application definition
@@ -77,9 +77,15 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',  # React's default port
+    'https://cmsserver.up.railway.app',
 ]
 
 ROOT_URLCONF = 'crms.urls'
+
+SECURE_SSL_REDIRECT = True  # Redirect all HTTP requests to HTTPS
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')  # If behind a proxy
+SESSION_COOKIE_SECURE = True  # Use secure cookies
+CSRF_COOKIE_SECURE = True      # Use secure CSRF cookies
 
 TEMPLATES = [
     {
@@ -96,6 +102,8 @@ TEMPLATES = [
         },
     },
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # Directory
 
 WSGI_APPLICATION = 'crms.wsgi.application'
 
@@ -129,8 +137,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://crmsserver.up.railway.app',
+]
+
 AUTH_USER_MODEL = 'courses.User'
 
+APPEND_SLASH = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
