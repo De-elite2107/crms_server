@@ -80,6 +80,7 @@ CORS_ORIGIN_WHITELIST = [
     'https://cmsserver.up.railway.app',
     'https://courseresourcesmanagementsystem.netlify.app/',
     'https://crms-web-delights-projects-4f8b0aa4.vercel.app/',
+    'https://crms-web.vercel.app/',
 ]
 
 ROOT_URLCONF = 'crms.urls'
